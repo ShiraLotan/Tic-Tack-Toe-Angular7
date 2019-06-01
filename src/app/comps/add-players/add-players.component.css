@@ -1,0 +1,27 @@
+.addplayers{
+    border: 8px dotted pink;
+    margin: auto;
+    height: 250px;
+    width: 550px;
+    margin-top: 40px;
+    background-color: antiquewhite;
+}
+.playersName{
+    margin-top:15%;
+    margin-left:17%;
+}
+span{
+    font-size: 27px;
+}
+input{
+    border: transparent;
+    border-bottom: double;
+    background-color: antiquewhite;
+    font-size: 25px;
+
+}
+button{
+width:240px;
+height:40px;
+margin-left: 15%;
+}

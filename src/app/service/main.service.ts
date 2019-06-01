@@ -38,4 +38,6 @@ url: string = 'http://localhost:3000/api/';
   {
     return this.http.get(this.url + 'getplayersandmoves');
   }
+
+
 }

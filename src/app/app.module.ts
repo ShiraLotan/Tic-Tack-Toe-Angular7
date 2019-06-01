@@ -5,24 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
-
 import { AppComponent } from './app.component';
 import { AddPlayersComponent } from './comps/add-players/add-players.component';
 import { BoardComponent } from './comps/board/board.component';
-import { SignPipe } from './pipes/sign.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPlayersComponent,
     BoardComponent,
-    SignPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

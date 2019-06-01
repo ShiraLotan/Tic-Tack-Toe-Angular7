@@ -1,16 +1,20 @@
 
 
 <div class='board'>
-
+<main>
   <div class='cell 0,0' (click)='move(0,0)' >{{board[0][0]}}</div>
   <div class='cell 1,0' (click)='move(1,0)' >{{board[1][0]}}</div>
-  <div class='cell 2,0' (click)='move(2,0)'>{{board[2][0]}}</div><br/>
+  <div class='cell 2,0' (click)='move(2,0)'>{{board[2][0]}}</div>
+</main><br/><br/><br/><br/><br/><br/>
+<main>
   <div class='cell 0,1' (click)='move(0,1)'>{{board[0][1]}}</div>
   <div class='cell 1,1' (click)='move(1,1)'>{{board[1][1]}}</div>
-  <div class='cell 2,1' (click)='move(2,1)'>{{board[2][1]}}</div><br/>
+  <div class='cell 2,1' (click)='move(2,1)'>{{board[2][1]}}</div>
+</main><br/><br/><br/><br/><br/><br/>
+<main>
   <div class='cell 0,2' (click)='move(0,2)'>{{board[0][2]}}</div>
   <div class='cell 1,2' (click)='move(1,2)'>{{board[1][2]}}</div>
   <div class='cell 2,2' (click)='move(2,2)'>{{board[2][2]}}</div>
-
+</main>
 </div>
 <button (click)='reset()'>Reset game</button>

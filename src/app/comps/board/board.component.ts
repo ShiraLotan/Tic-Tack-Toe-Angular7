@@ -26,7 +26,6 @@ export class BoardComponent implements OnInit {
         data.map(function(item)
         {
          let i= document.getElementsByClassName(`${item.colum},${item.row}`)
-         console.log(i[0])
          i[0].innerHTML=item.playerid
         }
         )
@@ -36,8 +35,9 @@ export class BoardComponent implements OnInit {
   move(col,row)
   {
     let currentDiv = event.currentTarget as HTMLInputElement;
+    console.log(currentDiv.textContent)
 
-    if (this.turn) {
+    if (currentDiv.textContent=='' && this.turn) {
         this.service.sendPlayerMove({player:this.user, col: col, row:row}).subscribe(data=>
           {
           currentDiv.innerHTML = 'X';
@@ -53,18 +53,16 @@ export class BoardComponent implements OnInit {
               this.col2[row]='X'
             }
 
-           console.log(this.col0,this.col1,this.col2)
            this.turn=false;
            this.user='O';
            this.checkTheWinner()
           })
-    }else if(this.turn==false)
+    }else if(currentDiv.textContent=='' && this.turn==false)
     {
       this.service.sendPlayerMove({player:this.user, col: col, row:row}).subscribe(data=>
         {
           currentDiv.innerHTML = 'O';
           this.board[col][row]==='O';
-          debugger
           if(col==0)
           {
             this.col0[row]='O';
@@ -74,15 +72,14 @@ export class BoardComponent implements OnInit {
           }else{
             this.col2[row]='O';
           }
-          console.log(this.col0,this.col1,this.col2)
 
 
-          this.turn=true;
-          this.user='X';
-          this.checkTheWinner()
-        })
-      
-    }
+          this.turn = true;
+          this.user = 'X';
+          this.checkTheWinner();
+        }
+        );
+    };
 
   }
  reset() {
@@ -96,7 +93,6 @@ export class BoardComponent implements OnInit {
       this.winner = '';
       this.user='X';
           let empty = document.getElementsByTagName('div')
-          console.log(empty)
           for(let i=1; i<empty.length ; i++ )
           {
             empty[i].innerHTML='';
@@ -118,12 +114,11 @@ export class BoardComponent implements OnInit {
 
       for(let i=0; i<Alloptions.length; i++)
       {
-        debugger
         if(Alloptions[i] =='XXX' || Alloptions[i] == 'OOO')
         {
           this.service.resetBoard().subscribe(data=>
             {
-              alert('The winner is NAME')
+              alert('We have a winner!!')
               this.reset()
             })
         }
